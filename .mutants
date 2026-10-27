@@ -1,0 +1,5 @@
+# the changes game mutants lets by, one per line as NAME :: WHY, the
+# name as the report prints it. a change belongs here only when it
+# makes no difference to anything the package promises; a change a
+# test could tell apart gets the test instead.
+

@@ -1,0 +1,9 @@
+[
+ {
+  "file": "testdata/tree/plain.go",
+  "line": 6,
+  "before": "// A habit opens this sentence, and it chains on, and on again, until\n// nobody is left.",
+  "code": "func Habit() {}",
+  "after": "// Habit does nothing."
+ }
+]

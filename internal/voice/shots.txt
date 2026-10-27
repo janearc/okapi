@@ -1,0 +1,35 @@
+== before
+// releaseDiff shows what a release would change on dist, before you
+// agree to it. it runs no lint and no tests on purpose. it only shows
+// the diff; the checks run in the verb that publishes.
+func releaseDiff(r repo.Repo, cfg config.Config, args []string) error {
+== after
+// releaseDiff shows what a release would change on dist.
+== before
+// run runs one command in a directory. if it fails, the error carries
+// the command's own output.
+func run(dir, name string, args ...string) (string, error) {
+== after
+// run execs a command in a given directory and returns err if nonzero.
+== before
+// stackLint runs the strictest of every member's lint rules over the
+// whole assembled tree. a stack is published as one thing, so a rule any
+// member follows applies to the whole stack.
+func stackLint(dir string, members []stack.Member) (lint.Lint, error) {
+== after
+// stackLint is the strictest lint.
+== before
+// runNamed runs a run from your config in your terminal. it removes TMUX
+// and TMUX_PANE from the environment, so a program that opens its own
+// window doesn't think it is inside tmux.
+func runNamed(r repo.Repo, cfg config.Config, name string) error {
+== after
+// runNamed runs a named run in your terminal, without tmux's variables.
+== before
+	// the sweep's hits go above the patch, because they are the reason
+	// a release would be refused and she should see them before she
+	// decides whether to read four hundred lines of diff.
+	if len(hits) > 0 {
+== after
+	// the sweep's hits are printed first, because any one of them
+	// stops the release.

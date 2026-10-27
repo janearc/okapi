@@ -1,0 +1,33 @@
+# vim: set filetype=game:
+# game: this repository
+
+# okapi: makes the comments in a Go tree plain. it measures them,
+# drafts rewrites with a local model, takes a reviewer's verdicts and
+# applies them.
+name okapi
+
+# lint rules for this repository. a lint line in a .game replaces all
+# the lint rules in your game config, so these lines copy all of them.
+lint width 80
+lint rows 25
+lint comments
+lint print
+lint exclaim
+lint shout
+lint words hyperscaler enterprise-grade blazing-fast load-bearing
+lint paragraph 4
+
+# the readme walks through the four moves with their output, so it
+# runs past 25 lines of prose.
+lint allow README.md rows
+
+# the mocks the tests use, made by mockgen from the interfaces the code
+# hands its outside to.
+target mocks . :: go run go.uber.org/mock/mockgen@v0.6.0 -source cmd/okapi/builds.go -destination cmd/okapi/builds_mock_test.go -package main
+target mocks . :: go run go.uber.org/mock/mockgen@v0.6.0 -source cmd/okapi/models.go -destination cmd/okapi/models_mock_test.go -package main
+target mocks . :: go run go.uber.org/mock/mockgen@v0.6.0 -source internal/apply/apply.go -destination cmd/okapi/files_mock_test.go -package main
+target mocks . :: go run go.uber.org/mock/mockgen@v0.6.0 -source internal/apply/apply.go -destination internal/apply/files_mock_test.go -package apply_test
+target mocks . :: go run go.uber.org/mock/mockgen@v0.6.0 -source internal/draft/draft.go -destination internal/draft/chatter_mock_test.go -package draft_test
+target mocks . :: go run go.uber.org/mock/mockgen@v0.6.0 -source internal/ollama/ollama.go -destination internal/ollama/doer_mock_test.go -package ollama_test
+target mocks . :: go run go.uber.org/mock/mockgen@v0.6.0 -source internal/measure/measure.go -destination internal/measure/repo_mock_test.go -package measure_test
+target mocks . :: go run go.uber.org/mock/mockgen@v0.6.0 -source internal/measure/measure.go -destination cmd/okapi/repo_mock_test.go -package main

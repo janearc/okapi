@@ -1,0 +1,45 @@
+# picked-numbers.yml: every number okapi uses that someone chose. Each
+# says what it is and who picked it. The code asks for them by name.
+# Numbers true by definition stay in the code and say they are defined.
+
+numbers:
+  - name: answer-wait
+    value: 5
+    unit: minutes
+    says: how long the model may take to answer one block
+    kind: picked
+    by: okapi's first version, 2026-10-12; moved here 2026-10-26
+
+  - name: up-wait
+    value: 2
+    unit: seconds
+    says: how long okapi waits to learn whether ollama answers at all
+    kind: picked
+    by: okapi's first version, 2026-10-12; moved here 2026-10-26
+
+  - name: temperature
+    value: 0.2
+    says: how loosely the model may word a draft; low keeps drafts close to the original
+    kind: picked
+    by: okapi's first version, 2026-10-12; moved here 2026-10-26
+
+  - name: progress-every
+    value: 20
+    unit: blocks
+    says: how many drafted blocks pass between two lines of progress
+    kind: picked
+    by: okapi's first version, 2026-10-12; moved here 2026-10-26
+
+  - name: code-lines
+    value: 3
+    unit: lines
+    says: how many lines of code under a comment go with the comment, so a reader can see what it describes
+    kind: picked
+    by: okapi's first version, 2026-10-12; moved here 2026-10-26
+
+  - name: shortest-sentence
+    value: 3
+    unit: words
+    says: the most words a Markdown sentence has and is still left out as a label rather than prose
+    kind: picked
+    by: okapi's first version, 2026-10-12; moved here 2026-10-26
